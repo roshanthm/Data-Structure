@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    int row, col, i, j;
+
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &row, &col);
+
+    int matrix[10][10];
+    int tuple[100][3];
+    int k = 1;
+
+    printf("Enter matrix elements:\n");
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < col; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < col; j++) {
+            if (matrix[i][j] != 0) {
+                tuple[k][0] = i;
+                tuple[k][1] = j;
+                tuple[k][2] = matrix[i][j];
+                k++;
+            }
+        }
+    }
+
+    tuple[0][0] = row;
+    tuple[0][1] = col;
+    tuple[0][2] = k - 1;
+
+    printf("\n");
+    for (i = 0; i < k; i++) {
+        printf("%3d %3d %5d\n", tuple[i][0], tuple[i][1], tuple[i][2]);
+    }
+
+    return 0;
+}
